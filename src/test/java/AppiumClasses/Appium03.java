@@ -3,7 +3,6 @@ package AppiumClasses;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +10,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium02 {
+public class Appium03 {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
@@ -25,22 +24,25 @@ public class Appium02 {
         capabilities.setCapability(MobileCapabilityType.APP,"C:\\Users\\sena_\\Downloads\\Gesture Tool_1.3_Apkpure.apk");
         capabilities.setCapability("appPackage","com.davemac327.gesture.tool");
         capabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
-        capabilities.setCapability("noReset",true);
-        //aplikasyonun izinleri atlayarak ana sayfada acilmasini istiyorsak ustteki komutu kullaniniz
+        capabilities.setCapability("noReset","true");
+
 
         AndroidDriver<MobileElement> driver=new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         System.out.println("app yuklendi");
-
-        Thread.sleep(15);
-        driver.findElementById("com.android.permissioncontroller:id/continue_button").click();
-
-        Thread.sleep(5);
-        MobileElement okButton=driver.findElementByXPath("//android.widget.Button[@text='OK']");
-        okButton.click();
-        System.out.println("Izinler Onaylandi");
-
         MobileElement homeScreenTitle= driver.findElementById("android:id/title");
         Assert.assertTrue(homeScreenTitle.isDisplayed());
         System.out.println("Anasayfa acildi");
+
+        MobileElement testButton = driver.findElementById("com.davemac327.gesture.tool:id/testButton");
+        testButton.click();
+        System.out.println("Test Button calisiyor");
+
+        MobileElement testButtonTitle= driver.findElementById("android:id/title");
+        Thread.sleep(5);
+        Assert.assertTrue(testButtonTitle.isDisplayed());
+
+
+        //session kapat
+        driver.closeApp();
     }
 }
