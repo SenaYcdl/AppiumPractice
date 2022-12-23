@@ -24,7 +24,7 @@ public class MyPhone04WebAppChrome {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"6000");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
-        capabilities.setCapability("chromeDriverExecutable","chromepath");
+        capabilities.setCapability("chromeDriverExecutable","C:\\Users\\sena_\\IdeaProjects\\newMobilTesting\\src\\driver\\chromedriver.exe");
 
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -47,6 +47,9 @@ public class MyPhone04WebAppChrome {
             }
 
         }
+
+        MobileElement logo=driver.findElementByXPath("//span[@id='logo-ext']");
+        Assert.assertTrue(logo.isDisplayed());
 
         System.out.println(driver.getContext() + "<===app degistiginde");
         Thread.sleep(5000);
