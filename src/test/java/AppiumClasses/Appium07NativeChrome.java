@@ -9,10 +9,9 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.Set;
 
-public class MyPhone03NativeChrome {
+public class Appium07NativeChrome {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {

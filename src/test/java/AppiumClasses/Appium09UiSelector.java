@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MyPhone05UiSelector {
+public class Appium09UiSelector {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
