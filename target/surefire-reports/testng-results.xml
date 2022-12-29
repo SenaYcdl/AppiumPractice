@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-12-28T17:09:23 EET" name="AppiumClasses.Appium10UiSelectorTestCase" finished-at="2022-12-28T17:09:50 EET" duration-ms="26806">
+    <groups>
+    </groups>
+    <test started-at="2022-12-28T17:09:23 EET" name="Command line test" finished-at="2022-12-28T17:09:50 EET" duration-ms="26806">
+      <class name="AppiumClasses.Appium10UiSelectorTestCase">
+        <test-method signature="test()[pri:0, instance:AppiumClasses.Appium10UiSelectorTestCase@c0c2f8d]" started-at="2022-12-28T17:09:23 EET" name="test" finished-at="2022-12-28T17:09:50 EET" duration-ms="26763" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- AppiumClasses.Appium10UiSelectorTestCase -->
+    </test> <!-- Command line test -->
+  </suite> <!-- AppiumClasses.Appium10UiSelectorTestCase -->
+</testng-results>
