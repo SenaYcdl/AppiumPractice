@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class ECommerce extends BaseECommerceApp {
+public class ECommerceNegativeLogin01 extends BaseECommerceApp {
 
      /*
     //1- Fill the form details and verify Toast error messages displayed appropriately for wrong inputs
