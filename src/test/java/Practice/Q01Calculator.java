@@ -3,10 +3,12 @@ package Practice;
 public class Q01Calculator {
 
     /*
-    app yukle
-    sayfaya git
-    8*9 islemini yap
-   ve cikan sonucu dogrula
+   calculator app yukle
+    8 butonuna tikla
+    carpi butonuna tikla
+    9 butonuna tikla
+    esittir butonuna tikla
+    cikan sonucu dogrula
      */
 
 

@@ -98,9 +98,22 @@
                     <artifactId>log4j</artifactId>
                 </exclusion>
             </exclusions>
-
         </dependency>
     </dependencies>
+
+    <!-- ignore this files -->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <excludes>
+                    <exclude>**/.idea/**</exclude>
+                    <exclude>**/.target/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
 
 
 </project>

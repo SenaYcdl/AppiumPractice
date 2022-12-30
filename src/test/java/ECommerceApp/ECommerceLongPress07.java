@@ -3,16 +3,21 @@ package ECommerceApp;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.touch.LongPressOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.time.Duration;
+import java.util.Set;
 
-public class ECommerceLongPress05 extends BaseECommerceApp {
+public class ECommerceLongPress07 extends BaseECommerceApp {
 
 
     @Test
@@ -84,23 +89,23 @@ public class ECommerceLongPress05 extends BaseECommerceApp {
         //fiyatin basindaki dolar isaretini atikcak gerisini yazdiricak
         String ilkFiyatRakam = firstProductPrice.getText().substring(1);
         String ikinicFiyatRakam = secondProductPrice.getText().substring(1);
-        System.out.println("ilk fiyat string = "+ ilkFiyatRakam);
-        System.out.println("ikinci fiyat string = "+ ikinicFiyatRakam);
+        System.out.println("ilk fiyat string = " + ilkFiyatRakam);
+        System.out.println("ikinci fiyat string = " + ikinicFiyatRakam);
         double fiyatDouble = Double.parseDouble(ilkFiyatRakam);
         double ikinciDouble = Double.parseDouble(ikinicFiyatRakam);
-        System.out.println("ilk fiyat double = "+ fiyatDouble);
-        System.out.println("ikinci fiyat double= "+ ikinciDouble);
+        System.out.println("ilk fiyat double = " + fiyatDouble);
+        System.out.println("ikinci fiyat double= " + ikinciDouble);
 
         double total = fiyatDouble + ikinciDouble;
-        System.out.println("total double " +total);
+        System.out.println("total double " + total);
 
         MobileElement totalActual = driver.findElementById("com.androidsample.generalstore:id/totalAmountLbl");
         String totalActualRakam = totalActual.getText().substring(1);
 
         double totalActualDouble = Double.parseDouble(totalActualRakam);
 
-        System.out.println("actual total double "+totalActualDouble);
-        Assert.assertEquals(totalActualDouble,total);
+        System.out.println("actual total double " + totalActualDouble);
+        Assert.assertEquals(totalActualDouble, total);
 
         //term of conditons gormek icin long press yapilmali
         MobileElement termButton = driver.findElementById("com.androidsample.generalstore:id/termsButton");
@@ -111,11 +116,50 @@ public class ECommerceLongPress05 extends BaseECommerceApp {
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2))).release().perform();
 
         Thread.sleep(4000);
-
         Assert.assertTrue(driver.findElementById("android:id/button1").isDisplayed());
-
         driver.findElementById("android:id/button1").click();
         Thread.sleep(10000);
+
+        System.out.println(driver.getContext() + "<=======proceed butonuna basmadan onceki context");
+        driver.findElementById("com.androidsample.generalstore:id/btnProceed").click();
+        Thread.sleep(5000);
+        System.out.println(driver.getContext() + "<=======proceed butonuna bastiktan sonraki context - driver hala native de");
+
+        Set<String> butunturler = driver.getContextHandles();
+        for (String tur : butunturler) {
+            System.out.println(tur);
+            if (tur.contains("WEBVIEW")) {
+               // driver.context("WEBVIEW_chrome");
+            }
+        }
+
+        Thread.sleep(5000);
+        System.out.println(driver.getContext() + " web view gectik");
+        Thread.sleep(5000);
+       // driver.get("https://www.google.com");
+       // Thread.sleep(5000);
+
+        /*
+        driver.findElement(By.xpath("//input[@name='q']")).sendKeys("appium" + Keys.ENTER);
+
+        Thread.sleep(5000);
+        System.out.println(driver.getContext() + " web view deyiz");
+
+        Thread.sleep(3000);
+        Set<String> butunturler1 = driver.getContextHandles();
+        for (String tur : butunturler1) {
+            System.out.println(tur);
+            if (tur.contains("NATIVE")) {
+                driver.context(tur);
+            }
+        }
+
+        driver.pressKey(new KeyEvent().withKey(AndroidKey.BACK));
+
+        System.out.println(driver.getContext() + " native deyiz");
+        Thread.sleep(10000);
+
+         */
 
         //close app
         driver.closeApp();
