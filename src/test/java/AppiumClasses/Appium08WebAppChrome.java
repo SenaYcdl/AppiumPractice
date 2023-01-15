@@ -19,12 +19,13 @@ public class Appium08WebAppChrome {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12 SKQ1.211019.001");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "626c3e64");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"6000");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
         capabilities.setCapability("chromeDriverExecutable","C:\\Users\\sena_\\IdeaProjects\\newMobilTesting\\src\\driver\\chromedriver.exe");
+       // capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"6000");
+
 
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
