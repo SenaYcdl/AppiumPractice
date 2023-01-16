@@ -3,13 +3,9 @@ package AppiumClasses;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import utilities.Driver;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Set;
@@ -42,7 +38,7 @@ public class Appium07NativeChrome {
         for (String tur : butunTurler) {
             System.out.println(tur);
             if (tur.contains("WEBVIEW_chrome")) {
-                //driver.context(tur);
+                driver.context(tur);
             }
 
         }
@@ -52,11 +48,9 @@ public class Appium07NativeChrome {
         MobileElement homeScreenLogo = driver.findElementByXPath("//android.view.View[@content-desc=\"Amazon\"]");
         Assert.assertTrue(homeScreenLogo.isDisplayed());
         System.out.println("Ana sayfadayiz");
-
-
-        //System.out.println(driver.getCurrentUrl() + "<===== url");
         Thread.sleep(3000);
 
+        ////android.widget.TextView[@text='Sign in ›']
         MobileElement signInButton = driver.findElementByXPath("//android.view.View[@content-desc=\"Sign in ›\"]/android.widget.TextView");
         signInButton.click();
 
