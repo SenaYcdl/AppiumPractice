@@ -64,63 +64,17 @@
             <version>3.141.59</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.2</version>
+        </dependency>
 
     </dependencies>
-    <!-- ignore this files -->
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <excludes>
-                    <exclude>**/.idea/**</exclude>
-                    <exclude>**/.target/**</exclude>
-                </excludes>
-            </resource>
-        </resources>
-    </build>
-
-    <profiles>
-        <profile>
-            <id>ios</id>
-            <build>
-                <defaultGoal>execute</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.21.0</version>
-                        <configuration>
-                            <parallel>methods</parallel>
-                            <threadCount>4</threadCount>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>ios.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>android</id>
-            <build>
-                <defaultGoal>execute</defaultGoal>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.21.0</version>
-                        <configuration>
-                            <parallel>methods</parallel>
-                            <threadCount>2</threadCount>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>android.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-
-        </profile>
-    </profiles>
 
 </project>
